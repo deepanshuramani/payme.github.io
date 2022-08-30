@@ -1,0 +1,26 @@
+{
+  "name": "PayMe",
+  "version": "1.0.0",
+  "description": "will describe later",
+  "main": "index.html",
+  "scripts": {
+    "start": "index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChetanRakheja/PayMe.git"
+  },
+  "keywords": [
+    "later"
+  ],
+  "author": "Chetan Rakheja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChetanRakheja/PayMe/issues"
+  },
+  "homepage": "https://github.com/ChetanRakheja/PayMe#readme",
+  "dependencies": {
+    "qrious": "^4.0.2",
+    "bootstrap": "^4.5.3"
+  }
+}

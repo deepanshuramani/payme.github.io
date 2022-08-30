@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Primary Meta Tags -->
+	<title>Payme | UPI LINK Generator</title>
+	<meta name="title" content="PayMe | UPI LINK Generator">
+	<meta name="description" content="Payme | UPI LINK Generator - https://github.com/chetanrakheja/payme>
+	<link rel="fluid-icon" href="https://raw.githubusercontent.com/chetanrakheja/Payme/main/img/Payme.png" title="Chetan Rakheja | Payme" />
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://chetanrakheja.github.io/PayMe">
+	<meta property="og:title" content="Payme | UPI LINK Generator">
+	<meta property="og:description" content="Payme | UPI LINK Generator - https://github.com/chetanrakheja/payme>
+	<meta property="og:image" content="https://raw.githubusercontent.com/chetanrakheja/Payme/main/img/payme.png">
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<!-- <meta property="twitter:url" content="https://chetanrakheja.com/Payme"> -->
+	<meta property="twitter:url" content="https://chetanrakheja.github.io/PayMe">
+	<meta property="twitter:title" content="Payme | UPI LINK Generator">
+	<meta property="twitter:description" content="Payme | UPI LINK Generator - https://github.com/chetanrakheja/payme>
+	<meta property="twitter:image" content="https://raw.githubusercontent.com/chetanrakheja/Payme/main/img/Payme.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/main.css">
+	<!-- Coded by Deepanshu Ramani on 25 August 2022  -->
+<body>
+<center>
+	<div class="card">
+		<div class="card-content">
+			<a href="payme.html?new"><img src="img/logo.png" height="50"></a>
+			<h5 id="name" style="color: #101010;"></h4>
+			<a id="PaymeQR"><canvas id="qr"></canvas></a>
+			<div style="margin-top: 2px;">
+			<a id="Payme">
+			<img src="img/upi.png" height="80">
+			<br>
+			<button class='btn'>Click here to Pay Now</button>
+			</a>
+			</div>
+			<br>
+			<a href="payme.html?new" style="color: #777;">Click here to create your own payment link</a>
+			<br>
+			<p style="color: #555">
+				<b>Developed BY : </b>
+				<a href="https://linkedin.com/in/deepanshu-ramani-0170174a" style="color: #999;">Deepanshu Ramani</a>
+				<br>
+				<!-- <img src="https://visitor-badge.vercel.app/page/Payme?color=Blue"/>  -->
+			</p>
+		</div>
+	</div>
+</center>
+
+<script src="qrious/qrious.min.js"></script>
+<script>
+if (window.location.search.indexOf('pa') > -1) {
+    const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const pn = urlParams.get('pn');
+	const pa = urlParams.get('pa');	
+	const am = urlParams.get('am');	
+	var user;
+	if(pn!=="") user=pn; 
+	else user=pa;
+	
+	// if(am!=="") user = user + "</b></u> <br> Amount - <b><u>" + am.toString() +"</b></u>"; 
+
+	const url= 'upi://pay'+queryString;
+	document.getElementById("name").innerHTML = "Click on Pay Now or Scan QR Code and Pay using any UPI Apps <br>Your are Paying to - <b><u>"+user;
+	document.getElementById("Payme").href = url;
+	document.getElementById("PaymeQR").href = url;
+	
+	(function() {
+        var qr = new QRious({
+          element: document.getElementById('qr'),
+          background: '#fff',
+          foreground: '#000',
+          size: 200,
+	  level: 'H',
+          value: url
+        });
+      })();
+} else {
+    location.replace("payme.html?error");
+}
+</script>
+
+</body>
+</html>
